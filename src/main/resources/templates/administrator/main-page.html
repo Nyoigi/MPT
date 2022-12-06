@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<meta charset="utf-8">
+<head>
+  <meta charset="UTF-8">
+  <title>Пользователи</title>
+  <link rel="stylesheet" href="/style.css">
+
+</head>
+<body>
+<header th:insert="/fragments/user/fragment :: headerMain"></header>
+<p>Города</p>
+
+<div>
+  <form>
+    <input type="email" placeholder="Почта">
+    <input type="text" placeholder="Пароль">
+    <div th:each="el : ${accountlist}">
+    <select>
+      <option>Изменить</option>
+    </select>
+    </div>
+    <input type="submit" value="Добавить">
+  </form>
+</div>
+
+<h1>Пользователи</h1>
+
+<table class="table">
+  <thead>
+  <tr>
+    <th>Номер</th>
+    <th>Почта</th>
+    <th>Пароль</th>
+    <th>Роль</th>
+    <th>Пользователь</th>
+    <th>Выбрать действие</th>
+    <th>Действие</th>
+  </tr>
+  </thead>
+  <tbody>
+  <div th:each="el : ${accountlist}">
+  <tr>
+    <td th:text="${el.id}"></td>
+    <td th:text="${el.email}"></td>
+    <td th:text="${el.password}"></td>
+    <td th:text="${el.role_id.nameRole}"></td>
+    <td th:text="${el.user_id}"></td>
+    <td>
+      <select>
+        <option>Изменить</option>
+        <option>Удалить</option>
+      </select>
+    </td>
+
+    <td>
+      <button>Выполнить</button>
+    </td>
+  </tr>
+  </div>
+  </tbody>
+</table>
+</body>
+</html>

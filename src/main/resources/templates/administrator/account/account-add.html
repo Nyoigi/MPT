@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form th:action="${'Account/MainPage/add'}" method="post">
+    <input type="email"  name="email"  placeholder="Почта">
+    <input type="text" name="password" placeholder="Пароль">
+
+        <select>
+            <option th:each="el : ${rolelist}" th:text="${el.nameRole}" th:value="${el.getId()}"></option>
+        </select>
+
+
+    <select>
+        <option>Отсутствует</option>
+        <option th:each="el : ${userlist}" th:text="${el.name_user}" th:value="${el.getId()}"></option>
+    </select>
+    <input type="submit" value="Добавить">
+</form>
+</body>
+</html>

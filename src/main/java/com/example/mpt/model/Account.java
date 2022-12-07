@@ -20,6 +20,13 @@ public class Account {
     @JoinColumn(name = "user_ID")
     private Tb_user user_id;
 
+    public Account(String email, String password, Role_us role_id, Tb_user user_id) {
+        this.email = email;
+        this.password = password;
+        this.role_id = role_id;
+        this.user_id = user_id;
+    }
+
     public Long getId() {
         return id;
     }
@@ -60,13 +67,7 @@ public class Account {
         this.user_id = user_id;
     }
 
-    public Account(Long id, String email, String password, Role_us role_id, Tb_user user_id) {
-        this.id = id;
-        this.email = email;
-        this.password = password;
-        this.role_id = role_id;
-        this.user_id = user_id;
-    }
+
 
     public Account() {
 

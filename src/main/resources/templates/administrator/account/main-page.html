@@ -8,22 +8,8 @@
 
 </head>
 <body>
-<header th:insert="/fragments/user/fragment :: headerMain"></header>
+<header th:insert="/fragments/admin/fragment :: headerMain"></header>
 <p>Города</p>
-
-<div>
-  <form>
-    <input type="email" placeholder="Почта">
-    <input type="text" placeholder="Пароль">
-    <div th:each="el : ${accountlist}">
-    <select>
-      <option>Изменить</option>
-    </select>
-    </div>
-    <input type="submit" value="Добавить">
-  </form>
-</div>
-
 <h1>Пользователи</h1>
 
 <table class="table">
@@ -60,5 +46,34 @@
   </div>
   </tbody>
 </table>
+
+<div class="wrapper">
+  <a href="#demo-modal">Добавить пользователя</a>
+</div>
+
+<div id="demo-modal" class="modal">
+  <div class="modal__content">
+
+    <div>
+      <input type="email"  name="email"  placeholder="Почта">
+    </div>
+     <div>
+       <input type="text" name="password" placeholder="Пароль">
+     </div>
+    <div>
+      <select>
+        <option th:each="el : ${rolelist}" th:text="${el.nameRole}" th:value="${el.getId()}"></option>
+      </select>
+    </div>
+     <div>
+       <select>
+         <option>Отсутствует</option>
+         <option th:each="el : ${userlist}" th:text="${el.name_user}" th:value="${el.getId()}"></option>
+       </select>
+     </div>
+      <input type="submit" value="Добавить">
+    <a href="#" class="modal__close">&times;</a>
+  </div>
+</div>
 </body>
 </html>

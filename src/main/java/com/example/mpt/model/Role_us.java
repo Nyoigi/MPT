@@ -2,7 +2,6 @@ package com.example.mpt.model;
 
 import jakarta.persistence.*;
 
-import java.util.Collection;
 import java.util.List;
 
 @Entity
@@ -10,6 +9,7 @@ public class Role_us {
 
     @GeneratedValue
     @Id
+
     private Long id;
 
     private String nameRole;
